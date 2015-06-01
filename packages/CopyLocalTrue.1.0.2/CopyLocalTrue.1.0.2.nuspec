@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>CopyLocalTrue</id>
+    <version>1.0.2</version>
+    <title>Set CopyLocal to true</title>
+    <authors>Jan Van der Haegen</authors>
+    <owners>Jan Van der Haegen</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>When ran on a project, sets the "CopyLocal" property of each dependency to true.  This slows build time considerably.</description>
+    <summary>When ran on a project, sets the "CopyLocal" property of each dependency to true.  This slows build time considerably.</summary>
+  </metadata>
+</package>

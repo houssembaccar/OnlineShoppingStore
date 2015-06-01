@@ -1,3 +1,4 @@
+using OnlineShoppingStore.Domain.Entities;
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(OnlineShoppingStore.WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(OnlineShoppingStore.WebUI.App_Start.NinjectWebCommon), "Stop")]
 
@@ -10,6 +11,10 @@ namespace OnlineShoppingStore.WebUI.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Moq;
+    using OnlineShoppingStore.Domain.Abstract;
+    using System.Collections.Generic;
+    using OnlineShoppingStore.Domain.Concrete;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +66,10 @@ namespace OnlineShoppingStore.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>();
+       
+        //    kernel.Bind<IProductRepository>().ToConstant(mock.Object);
         }        
     }
 }
